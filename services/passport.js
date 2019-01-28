@@ -33,12 +33,12 @@ passport.use(new GoogleStrategy({
   })
 );
 
-passport.use(new FacebookStrategy({
-  clientID: keys.facebookClientID,
-  clientSecret: keys.facebookClientSecret,
-  callbackURL: '/auth/facebook/callback',
-  proxy: true
-}, (accessToken, refreshToken, profile, done) => {
-    console.log(profile);
-  })
-);
+// passport.use(new FacebookStrategy({
+//   clientID: keys.facebookClientID,
+//   clientSecret: keys.facebookClientSecret,
+//   callbackURL: '/auth/facebook/callback',
+//   proxy: true
+// }, (accessToken, refreshToken, profile, done) => {
+//     console.log(profile);
+//   })
+// );
