@@ -1,0 +1,53 @@
+:root {
+  --color-white: #FFF;
+  --color-black: #000;
+
+  --color-primary-light: #E93824;
+  --color-primary-dark: #C22F1E;
+  --color-primary: #DC3522;
+
+  --color-secondary: #D9CB9E;
+
+  --color-tertiary: #374140;
+
+  --color-dark: #374140;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+a, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+html {
+  font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  @include respond(desktop) {
+  font-size: 62.5%;
+  }
+  @include respond(tablet-bg) {
+    font-size: 56.25%;
+  }
+  @include respond(tablet) {
+    font-size: 50%;
+  }
+  @include respond(phone) {
+    font-size: 40%;
+  }
+}
+
+body {
+  min-height: 100vh;
+  margin: 0 auto;
+}

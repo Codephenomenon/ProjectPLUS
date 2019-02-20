@@ -1,0 +1,231 @@
+:root {
+  --color-white: #FFF;
+  --color-black: #000;
+  --color-primary-light: #E93824;
+  --color-primary-dark: #C22F1E;
+  --color-primary: #DC3522;
+  --color-secondary: #D9CB9E;
+  --color-tertiary: #374140;
+  --color-dark: #374140; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit; }
+
+a, a:active {
+  color: inherit;
+  text-decoration: none; }
+
+html {
+  font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media only screen and (min-width: 93.75em) {
+    html {
+      font-size: 62.5%; } }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 40%; } }
+
+body {
+  min-height: 100vh;
+  margin: 0 auto; }
+
+.landing {
+  width: 100%;
+  height: auto;
+  min-height: 92vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/images/achievement.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+  .landing_panel {
+    width: 100%;
+    max-width: 70rem;
+    height: 60rem;
+    background-color: var(--color-white);
+    box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; }
+    .landing_panel-row {
+      flex: 0 0 40%;
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-around; }
+      .landing_panel-row--input {
+        width: 20rem;
+        height: 2.5rem;
+        transition: all 0.3s ease;
+        background-color: var(--color-secondary); }
+        .landing_panel-row--input:focus {
+          outline: none;
+          background-color: var(--color-white);
+          box-shadow: inset 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.4); }
+      .landing_panel-row--label {
+        padding: 0.2rem;
+        font-size: 1.5rem;
+        font-weight: 300; }
+      .landing_panel-row--error {
+        padding: 0.3rem 0rem;
+        font-size: 1.2rem;
+        color: var(--color-white);
+        font-style: italic; }
+      .landing_panel-row--btn {
+        width: 5.8rem;
+        height: 3rem;
+        border: none;
+        background: var(--color-primary-light);
+        color: var(--color-white);
+        font-size: 1.6rem;
+        box-shadow: 0.1rem 0.2rem 0.3rem rgba(0, 0, 0, 0.4); }
+      .landing_panel-row--logo {
+        width: 20rem;
+        height: 20rem;
+        flex: 0 0 35%; }
+      .landing_panel-row--intro {
+        flex: 0 0 65%;
+        width: auto;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0rem 2rem;
+        flex-direction: column;
+        font-size: 1.5rem; }
+        .landing_panel-row--intro span {
+          font-size: 2.3rem; }
+      .landing_panel-row--div {
+        flex: 1; }
+      .landing_panel-row form {
+        height: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1rem 2rem;
+        background-color: rgba(0, 0, 0, 0.1); }
+        .landing_panel-row form h1 {
+          color: var(--color-white);
+          text-shadow: 0.1rem 0.2rem 0.2rem var(--color-black); }
+      .landing_panel-row-subpanel {
+        height: 100%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        padding: 7rem 0rem; }
+        .landing_panel-row-subpanel--link {
+          color: var(--color-white);
+          font-size: 2rem;
+          font-weight: 400;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.4s ease;
+          padding: 2rem 1rem;
+          box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.4); }
+      .landing_panel-row-two {
+        flex: 0 0 60%;
+        background-color: var(--color-primary-dark); }
+
+.facebook {
+  background-color: #336699; }
+  .facebook:hover {
+    background-color: #395597; }
+
+.google {
+  background-color: #DA2E12;
+  padding: 2rem 2.1rem; }
+  .google:hover {
+    background-color: #C12910; }
+
+.login {
+  width: 100%;
+  height: auto;
+  min-height: 92vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(var(--color-dark), var(--color-black));
+  background-repeat: no-repeat; }
+  .login_panel {
+    width: 100%;
+    max-width: 40rem;
+    height: 60rem;
+    background-color: var(--color-white);
+    box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; }
+    .login_panel-logo {
+      width: 20rem;
+      height: 20rem; }
+    .login_panel-subpanel {
+      width: 100%;
+      height: 35rem;
+      background-color: var(--color-primary);
+      display: flex;
+      flex-direction: column; }
+      .login_panel-subpanel--link {
+        width: 100%;
+        flex: 1;
+        color: var(--color-white);
+        font-size: 2.5rem;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.4s ease; }
+        .login_panel-subpanel--link:first-child {
+          background-color: var(--color-primary-light); }
+          .login_panel-subpanel--link:first-child:hover {
+            background-color: var(--color-primary-dark); }
+        .login_panel-subpanel--link:not(:last-child) {
+          border-bottom: 0.1rem solid var(--color-dark); }
+
+.header {
+  background: linear-gradient(120deg, var(--color-primary-light), var(--color-primary));
+  width: 100%;
+  height: 6rem;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .header_logo {
+    width: 10rem;
+    height: 5rem;
+    margin-left: 2rem; }
+  .header_login {
+    background-color: var(--color-primary-light); }
+  .header .item {
+    align-self: stretch;
+    transition: background-color 0.4s ease;
+    display: flex;
+    align-items: center;
+    padding: 0rem 2rem;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: var(--color-white); }
+    .header .item:hover {
+      background-color: var(--color-primary-dark); }
