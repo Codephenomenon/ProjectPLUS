@@ -1,8 +1,7 @@
-const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
-const flash = require('express-flash-messages');
 const User = mongoose.model('users');
+const passport = require('passport')
 
 module.exports = (app) => {
 
@@ -28,14 +27,17 @@ module.exports = (app) => {
           if(err) {
             console.log(err);
             return;
-          } else {
-            req.flash('success', 'You have registered for ProjectPLUS!');
           }
         })
       });
     });
+  });
 
-
+  app.post('/login', function(req, res, next) {
+    passport.authenticate('local', {
+      successRedirect: '/dashboard',
+      failureRedirect: '/'
+    })(req, res, next);
   });
 
 };

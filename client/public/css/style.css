@@ -1,3 +1,11 @@
+@keyframes login-stretch {
+  0% {
+    transform: scaleX(0);
+    opacity: 0; }
+  100% {
+    transform: scaleX(1);
+    opacity: 1; } }
+
 :root {
   --color-white: #FFF;
   --color-black: #000;
@@ -6,6 +14,7 @@
   --color-primary: #DC3522;
   --color-secondary: #D9CB9E;
   --color-tertiary: #374140;
+  --color-lightgray: #E6E7E8;
   --color-dark: #374140; }
 
 * {
@@ -40,7 +49,8 @@ html {
 
 body {
   min-height: 100vh;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden; }
 
 .landing {
   width: 100%;
@@ -56,7 +66,7 @@ body {
   .landing_panel {
     width: 100%;
     max-width: 70rem;
-    height: 60rem;
+    height: 54rem;
     background-color: var(--color-white);
     box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.5);
     display: flex;
@@ -158,51 +168,6 @@ body {
   .google:hover {
     background-color: #C12910; }
 
-.login {
-  width: 100%;
-  height: auto;
-  min-height: 92vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(var(--color-dark), var(--color-black));
-  background-repeat: no-repeat; }
-  .login_panel {
-    width: 100%;
-    max-width: 40rem;
-    height: 60rem;
-    background-color: var(--color-white);
-    box-shadow: 1rem 2rem 2rem rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; }
-    .login_panel-logo {
-      width: 20rem;
-      height: 20rem; }
-    .login_panel-subpanel {
-      width: 100%;
-      height: 35rem;
-      background-color: var(--color-primary);
-      display: flex;
-      flex-direction: column; }
-      .login_panel-subpanel--link {
-        width: 100%;
-        flex: 1;
-        color: var(--color-white);
-        font-size: 2.5rem;
-        font-weight: 400;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.4s ease; }
-        .login_panel-subpanel--link:first-child {
-          background-color: var(--color-primary-light); }
-          .login_panel-subpanel--link:first-child:hover {
-            background-color: var(--color-primary-dark); }
-        .login_panel-subpanel--link:not(:last-child) {
-          border-bottom: 0.1rem solid var(--color-dark); }
-
 .header {
   background: linear-gradient(120deg, var(--color-primary-light), var(--color-primary));
   width: 100%;
@@ -218,8 +183,36 @@ body {
     margin-left: 2rem; }
   .header_login {
     background-color: var(--color-primary-light); }
+    .header_login-panel {
+      animation: login-stretch 0.3s ease 1;
+      transform-origin: right;
+      position: absolute;
+      z-index: 10;
+      width: 22rem;
+      height: 22rem;
+      background: linear-gradient(-45deg, var(--color-lightgray), var(--color-white));
+      right: 0;
+      box-shadow: 0.2rem 0.3rem 0.3rem rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center; }
+      .header_login-panel--input {
+        padding: 0.5rem 0.2rem;
+        font-size: 1.2rem;
+        font-weight: 300; }
+        .header_login-panel--input label {
+          font-size: 1.5rem;
+          color: var(--color-dark); }
+      .header_login-panel--btn {
+        width: 5.8rem;
+        height: 3rem;
+        border: none;
+        background: var(--color-primary-light);
+        color: var(--color-white);
+        font-size: 1.6rem;
+        box-shadow: 0.1rem 0.2rem 0.3rem rgba(0, 0, 0, 0.4); }
   .header .item {
     align-self: stretch;
+    height: 6rem;
     transition: background-color 0.4s ease;
     display: flex;
     align-items: center;

@@ -1,5 +1,6 @@
 import React,  { Component } from 'react';
 import { connect } from 'react-redux';
+import Login from './Login';
 
 class Header extends Component {
   renderLogin() {
@@ -8,7 +9,7 @@ class Header extends Component {
         return;
       case false:
         return (
-          <div className="header_login item"><a href="/login">Login</a></div>
+          <Login />
         );
       default:
         return (

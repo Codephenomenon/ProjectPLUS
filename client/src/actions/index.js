@@ -11,8 +11,16 @@ export const createUser = (values) => async (dispatch) => {
     console.log(response);
   })
   .catch(function(error){
-    console.log(error.response.data);
-    console.log(error.response.status);
-    console.log(error.response.headers);
+    console.log(error);
+  });
+};
+
+export const authUser = (values) => async (dispatch) => {
+  axios.post('/login', values)
+  .then((response) => {
+    console.log('success', response);
+  })
+  .catch(function(error){
+    console.log('failure', error);
   });
 };

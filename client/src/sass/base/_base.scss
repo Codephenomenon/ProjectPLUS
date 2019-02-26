@@ -10,6 +10,7 @@
 
   --color-tertiary: #374140;
 
+  --color-lightgray: #E6E7E8;
   --color-dark: #374140;
 }
 
@@ -50,4 +51,5 @@ html {
 body {
   min-height: 100vh;
   margin: 0 auto;
+  overflow: hidden;
 }

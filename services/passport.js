@@ -4,6 +4,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
+const bcrypt = require('bcryptjs')
 
 const User = mongoose.model('users');
 
@@ -52,13 +53,22 @@ passport.use(new LocalStrategy(
         return done(err);
       }
       if (!user) {
-        return done(null, false);
+        return done(null, false, {message: 'No user found'});
       }
       if (!user.verifyPassword(password)) {
         return done(null, false);
       }
-
-      return done(null, user);
+      bcrypt.compare(password, user.password, function(err, match) {
+        if (err) {
+          console.log(err);
+          throw err;
+        }
+        if (match) {
+          return done(null, user);
+        } else {
+          return done(null, false, {message: 'wrong password'});
+        }
+      });
     });
   }
 ));

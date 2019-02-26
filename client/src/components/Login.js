@@ -1,22 +1,93 @@
 import React,  { Component } from 'react';
+import { Field, reset, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { authUser } from '../actions/index.js'
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      displayLogin: false
+    };
+    this.displayLoginForm = this.displayLoginForm.bind(this);
+  }
+
+  renderError({error, touched}) {
+    if (touched && error) {
+      return (
+        <div className="">{error}</div>
+      );
+    }
+  }
+
+  renderInput = ({input, label, type, meta}) => {
+    return (
+      <div className="header_login-panel--input">
+        <label className="">{label}</label><br></br>
+        <input {...input} autoComplete="off" className="" type={type} />
+        {this.renderError(meta)}
+      </div>
+    );
+  }
+
+  displayLoginForm() {
+    this.setState({
+      displayLogin: !this.state.displayLogin
+    });
+  }
+
+  onSubmit = (values, dispatch) => {
+    const userData = {
+      userName: values.userName,
+      password: values.password
+    }
+    this.props.authUser(userData);
+    dispatch(reset("authUser"));
+  }
+
+  renderLoginForm() {
+    if (this.state.displayLogin === true) {
+      return (
+        <div className="header_login-panel">
+          <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+            <Field name="userName" component={this.renderInput} label="Username:" />
+            <Field name="password" type="password" component={this.renderInput} label="Password:" />
+            <button type="submit" className="header_login-panel--btn">Submit</button>
+          </form>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
-      <div className="login">
-        <div className="login_panel">
-          <object className="login_panel-logo" type="image/svg+xml" data="images/plus_logo.svg" height="50" width="50">
-            <img src="images/plus_logo.svg" alt="ProjectPLUS Logo"></img>
-          </object>
-          <div className="login_panel-subpanel">
-            <span className="login_panel-subpanel--link">Sign Up</span>
-            <span className="login_panel-subpanel--link facebook">Continue with Facebook</span>
-            <span className="login_panel-subpanel--link google">Continue with Google</span>
-          </div>
+      <div>
+        <div className="header_login item" onClick={this.displayLoginForm}>
+          Login
         </div>
+        {
+          this.renderLoginForm()
+        }
       </div>
     );
   }
 }
 
-export default Login;
+const validate = (values) => {
+  const errors = {};
+  if (!values.userName) {
+    errors.userName = 'Username is required.';
+  }
+  if (!values.password) {
+    errors.password = 'Password is required.';
+  }
+  return errors;
+};
+
+const wrappedForm = reduxForm({
+  form: 'authUser',
+  validate: validate
+})(Login);
+
+export default connect(null, { authUser })(wrappedForm);

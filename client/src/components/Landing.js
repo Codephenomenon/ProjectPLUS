@@ -50,7 +50,7 @@ class Landing extends Component {
           <div className="landing_panel-row landing_panel-row-two">
             <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
               <h1>Sign Up</h1>
-              <Field name="firstName" component={this.renderInput} label="First name:" />
+              <Field name="firstName" component={this.renderInput} label="Username:" />
               <Field name="email" component={this.renderInput} label="Email:" />
               <Field name="password" type="password" component={this.renderInput} label="Password:" />
               <Field name="confirmPassword" type="password" component={this.renderInput} label="Confirm password:" />
