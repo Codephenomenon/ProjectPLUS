@@ -1,6 +1,14 @@
 const passport = require('passport');
 
 module.exports = (app) => {
+  // LOCAL
+  app.post('/auth', function(req, res, next) {
+    passport.authenticate('local', {
+      successRedirect: '/dashboard',
+      failureRedirect: '/'
+    })(req, res, next);
+  });
+
   // GOOGLE
   app.get('/auth/google', passport.authenticate('google', {
     scope: ['profile', 'email']

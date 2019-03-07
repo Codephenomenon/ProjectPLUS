@@ -1,0 +1,38 @@
+.dashboard {
+  width: 100%;
+  height: auto;
+  min-height: 82vh;
+  background-color: var(--color-primary-dark);
+  padding: 0.5rem 0rem;
+
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+
+  & > div {
+    background-color: var(--color-white);
+    box-shadow: 0.3rem 0.3rem 0.4rem rgba(0,0,0,0.6);
+  }
+
+  &_contactsbox {
+    grid-column-start: 6;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+
+  &_alertsbox {
+    grid-column-start: 6;
+    grid-column-end: 10;
+    grid-row-start: 3;
+    grid-row-end: 6;
+  }
+
+  .title {
+    font-size: 2rem;
+    padding-left: 2rem;
+    color: var(--color-white);
+    text-shadow: 0.2rem 0.2rem 0.3rem rgba(0,0,0,0.4);
+  }
+}

@@ -57,7 +57,7 @@ class Landing extends Component {
               <button type="submit" className="landing_panel-row--btn">Submit</button>
             </form>
             <div className="landing_panel-row-subpanel">
-              <span className="landing_panel-row-subpanel--link facebook">Continue with Facebook</span>
+              <span className="landing_panel-row-subpanel--link facebook"><a href="/auth/facebook">Continue with Facebook</a></span>
               <span className="landing_panel-row-subpanel--link google"><a href="/auth/google">Continue with Google</a></span>
             </div>
           </div>

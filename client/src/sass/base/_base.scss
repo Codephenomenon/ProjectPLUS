@@ -11,6 +11,7 @@
   --color-tertiary: #374140;
 
   --color-lightgray: #E6E7E8;
+  --color-mediumgray: #E4E5E5;
   --color-dark: #374140;
 }
 
@@ -34,6 +35,8 @@ html {
   font-family: 'Rubik', sans-serif;
   box-sizing: border-box;
   font-size: 62.5%;
+  min-height: 100vh;
+
   @include respond(desktop) {
   font-size: 62.5%;
   }
@@ -51,5 +54,4 @@ html {
 body {
   min-height: 100vh;
   margin: 0 auto;
-  overflow: hidden;
 }

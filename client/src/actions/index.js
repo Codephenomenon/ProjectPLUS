@@ -16,7 +16,7 @@ export const createUser = (values) => async (dispatch) => {
 };
 
 export const authUser = (values) => async (dispatch) => {
-  axios.post('/login', values)
+  axios.post('/auth', values)
   .then((response) => {
     console.log('success', response);
   })

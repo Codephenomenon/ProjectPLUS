@@ -31,13 +31,7 @@ module.exports = (app) => {
         })
       });
     });
-  });
-
-  app.post('/login', function(req, res, next) {
-    passport.authenticate('local', {
-      successRedirect: '/dashboard',
-      failureRedirect: '/'
-    })(req, res, next);
+    
   });
 
 };
