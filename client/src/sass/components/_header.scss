@@ -1,7 +1,7 @@
 .header {
   background: linear-gradient(120deg, var(--color-primary-light), var(--color-primary));
   width: 100%;
-  height: 6rem;
+  height: $headerHeight;
   position: relative;
   z-index: 5;
   display: flex;

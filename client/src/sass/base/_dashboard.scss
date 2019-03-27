@@ -1,9 +1,8 @@
 .dashboard {
   width: 100%;
-  height: auto;
-  min-height: 82vh;
+  height: $mainHeight;
   background-color: var(--color-primary-dark);
-  padding: 0.5rem 0rem;
+  padding: 0.5rem 5rem;
 
   display: grid;
   grid-gap: 1rem;

@@ -38,11 +38,11 @@ class Login extends Component {
   }
 
   onSubmit = (values, dispatch) => {
-    const userData = {
-      userName: values.userName,
+    const user = {
+      username: values.userName,
       password: values.password
     }
-    this.props.authUser(userData);
+    this.props.authUser(user);
     dispatch(reset("authUser"));
   }
 

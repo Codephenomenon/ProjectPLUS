@@ -2,11 +2,11 @@ const passport = require('passport');
 
 module.exports = (app) => {
   // LOCAL
-  app.post('/auth', function(req, res, next) {
-    passport.authenticate('local', {
-      successRedirect: '/dashboard',
-      failureRedirect: '/'
-    })(req, res, next);
+  app.post('/auth',
+    passport.authenticate('local', { successRedirect: '/dashboard', failureRedirect: '/' }),
+      function(req, res) {
+        console.log('redirect called');
+        res.redirect('/dashboard');
   });
 
   // GOOGLE

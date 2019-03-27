@@ -1,5 +1,6 @@
 @import "./abstracts/mixins";
 @import "./abstracts/animations";
+@import "./abstracts/variables";
 
 @import "./base/base";
 @import "./base/landing";
@@ -7,4 +8,5 @@
 
 @import "./components/header";
 @import "./components/projectsbox";
-@import "./components/footer"; 
+@import "./components/newproject";
+@import "./components/footer";

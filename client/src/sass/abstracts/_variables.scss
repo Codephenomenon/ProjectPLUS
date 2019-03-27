@@ -1,0 +1,3 @@
+$headerHeight: 6rem;
+$footerHeight: 4rem;
+$mainHeight: calc(100vh - (#{$headerHeight} + #{$footerHeight}));

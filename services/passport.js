@@ -47,17 +47,17 @@ passport.use(new FacebookStrategy({
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
+    User.findOne({
+      name: username
+    }, function(err, user) {
       if (err) {
-        console.log(err);
         return done(err);
       }
+
       if (!user) {
-        return done(null, false, {message: 'No user found'});
-      }
-      if (!user.verifyPassword(password)) {
         return done(null, false);
       }
+
       bcrypt.compare(password, user.password, function(err, match) {
         if (err) {
           console.log(err);
@@ -66,7 +66,7 @@ passport.use(new LocalStrategy(
         if (match) {
           return done(null, user);
         } else {
-          return done(null, false, {message: 'wrong password'});
+          return done(null, false);
         }
       });
     });

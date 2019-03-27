@@ -6,6 +6,7 @@ import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
+import ProjectNew from './projects/ProjectNew';
 import Footer from './Footer';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route path="/projects/new" component={ProjectNew} />
             <Footer />
           </div>
         </BrowserRouter>

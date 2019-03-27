@@ -19,7 +19,7 @@ module.exports = (app) => {
     bcrypt.genSalt(10, function(err, salt) {
       bcrypt.hash(newUser.password, salt, function(err, hash) {
         if (err) {
-          console.log(errpr);
+          console.log(err);
           return;
         }
         newUser.password = hash;
@@ -31,7 +31,7 @@ module.exports = (app) => {
         })
       });
     });
-    
+
   });
 
 };

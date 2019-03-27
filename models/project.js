@@ -4,11 +4,12 @@ const groupMemberSchema = require('./groupMember');
 
 const projectSchema = new Schema({
   title: String,
-  description: String,
+  subject: String,
+  body: String,
   dateCreated: Date,
-  dueDate: Date,
+  dueDate: String,
   complete: { type: Boolean, default: false },
-  groupMembers: [groupMemberSchema],
+  recipients: [groupMemberSchema],
   _user: { type: Schema.Types.ObjectId, ref: 'user' }
 });
 

@@ -7,5 +7,6 @@ module.exports = {
   cookieKeyB: process.env.COOKIE_KEY_B,
   cookieKeyC: process.env.COOKIE_KEY_C,
   mongoURI: process.env.MONGO_URI,
-  sendGridKey: process.env.SEND_GRID_KEY
+  sendGridKey: process.env.SEND_GRID_KEY,
+  redirectDomain: process.env.REDIRECTDOMAIN
 };

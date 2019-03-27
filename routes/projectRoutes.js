@@ -6,20 +6,32 @@ const projectTemplate = require('../services/emailTemplates/projectMemberTemplat
 const Project = mongoose.model('projects');
 
 module.exports = (app) => {
-  app.post('/api/surveys', requireLogin, (req, res) => {
-    const { title, description, dueDate, complete, blocks, groupMembers } = req.body;
+  app.post('/api/projects', requireLogin, (req, res) => {
+    const { title, subject, body, dueDate, recipients } = req.body;
 
     const project = new Project({
       title: title,
-      description: description,
+      subject: subject,
+      body: body,
       dateCreated: Date.now(),
       dueDate: dueDate,
       complete: false,
-      groupMembers: groupMembers.split(',').map(email => ({ email: email.trim() })),
+      recipients: recipients.split(',').map(email => ({ email: email.trim() })),
       _user: req.user.id
     });
 
     // send emails to group members
-    const mailer = new Mailer(project, projectTemplate(project));
+    try {
+      const mailer = new Mailer(project, projectTemplate(project));
+
+      mailer.send();
+      project.save();
+      const user = req.user.save();
+
+      res.send(user);
+    } catch (error) {
+      res.status(422).send(error);
+    }
+
   });
 };
