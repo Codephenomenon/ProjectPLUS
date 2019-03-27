@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import ProjectsBox from './ProjectsBox';
+import { connect } from 'react-redux';
 
 class Dashboard extends Component {
 
-  render () {
+  componentDidMount() {
+    if (!this.props.auth || this.props.auth === null) {
+      this.props.history.push('/');
+    }
+  }
+
+  render() {
     return (
       <div className="dashboard">
-        <ProjectsBox/>
+        <ProjectsBox />
         <div className="dashboard_contactsbox"></div>
         <div className="dashboard_alertsbox"></div>
       </div>
@@ -14,4 +21,8 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Dashboard);
