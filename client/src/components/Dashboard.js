@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Dashboard extends Component {
 
   componentDidMount() {
-    if (!this.props.auth || this.props.auth === null) {
+    if (!this.props.auth) {
       this.props.history.push('/');
     }
   }
