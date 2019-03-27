@@ -3,8 +3,8 @@ const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\
 export default (emails) => {
   const invalidArray = emails
     .split(',')
-      .map(email => email.trim())
-        .filter(email => regex.test(email) === false);
+    .map(email => email.trim())
+    .filter(email => regex.test(email) === false);
   if (invalidArray.length) {
     return `Invalid emails found: ${invalidArray}`;
   } else {
