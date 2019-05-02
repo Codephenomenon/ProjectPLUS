@@ -3,7 +3,7 @@ const Path = require('path-parser').default;
 const { URL } = require('url');
 const requireLogin = require('../middlewares/requireLogin');
 const mongoose = require('mongoose');
-const Mailer = require('../services/Mailer');
+const Mailer = require('../services/mailer');
 const projectTemplate = require('../services/emailTemplates/projectMemberTemplate');
 
 const Project = mongoose.model('projects');
