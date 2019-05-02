@@ -16,6 +16,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "start": "react-scripts start",
     "watch:sass": "node-sass sass/main.scss css/style.css -w",
     "compile:sass": "node-sass src/sass/main.scss public/css/style.comp.css",
     "prefix:css": "postcss public/css/style.comp.css -d public/css -u autoprefixer",
