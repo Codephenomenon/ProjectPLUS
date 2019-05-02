@@ -1,0 +1,115 @@
+.projectdash {
+  width: 100%;
+  height: $mainHeight;
+  background-color: var(--color-white);
+  padding: 0.5rem 5rem;
+
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+
+  & > div {
+    box-shadow: 0.3rem 0.3rem 0.4rem rgba(0,0,0,0.6);
+  }
+
+  &_objectives {
+    background-color: var(--color-lightgray);
+    overflow-y: scroll;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 6;
+
+    @include respond(tablet-bg) {
+      grid-column-start: 2;
+      grid-column-end: 11;
+      grid-row-start: 1;
+      grid-row-end: 4;
+    }
+
+    &-header {
+      &-top h2 {
+        padding: 1rem;
+        font-weight: 500;
+        font-size: 2.5rem;
+        background-color: var(--color-white);
+        border: 0.2rem solid #ebebeb;
+      }
+
+      &-bottom {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.5rem;
+        background-color: darken(#ebebeb, 25%);
+      }
+    }
+
+    &-panel-list {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+
+      &--item {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        padding: 0.5rem 2rem;
+        justify-content:flex-start;
+
+        &-title {
+          font-size: 1.5rem;
+          padding: 0.5rem;
+          font-weight: 500;
+        }
+
+        &-leader {
+          font-size: 1rem;
+          padding-left: 0.5rem;
+          font-style: italic;
+        }
+
+        &-description {
+          background: var(--color-white);
+          flex: 1;
+          padding-left: 1.5rem;
+          font-size: 1.2rem;
+          border-right: 0.4rem solid var(--color-primary);
+        }
+      }
+    }
+
+    &-button {
+      margin: 1rem 2rem;
+      padding: 1rem 1.5rem;
+      border: none;
+      background-color: var(--color-white);
+      box-shadow: 0.1rem 0.2rem 0.3rem rgba(0,0,0,0.3);
+      color: var(--color-primary);
+      border-radius: 50%;
+      font-size: 2rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &_settings {
+    grid-column-start: 6;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 6;
+
+    @include respond(tablet-bg) {
+      grid-column-start: 2;
+      grid-column-end: 11;
+      grid-row-start: 4;
+      grid-row-end: 6;
+    }
+  }
+}

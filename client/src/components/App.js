@@ -7,6 +7,7 @@ import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import ProjectNew from './projects/ProjectNew';
+import ProjectDashboard from './projectDashboard/ProjectDashboard';
 import Footer from './Footer';
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
     this.props.fetchUser();
   }
 
-  render () {
+  render() {
     return (
       <div>
         <BrowserRouter>
@@ -22,7 +23,8 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route path="/projects/new" component={ProjectNew} />
+            <Route exact path="/projects/new" component={ProjectNew} />
+            <Route exact path="/projectdash/*" component={ProjectDashboard} />
             <Footer />
           </div>
         </BrowserRouter>

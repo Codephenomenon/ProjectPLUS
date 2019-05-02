@@ -85,5 +85,23 @@
       background: #E8E8E8;
       padding: 0.5rem;
     }
+
+    &--submit {
+      padding: 0.5rem;
+      margin-left: 0.4rem;
+      border: none;
+      background: #104D9C;
+      color: white;
+      box-shadow: 0.1rem 0.2rem 0.3rem rgba(0,0,0,0.4);
+    }
+
+    &--cancel {
+      padding: 0.5rem 0.7rem;
+      border: none;
+      background: #9C1809;
+      color: white;
+      box-shadow: 0.1rem 0.2rem 0.3rem rgba(0,0,0,0.4);
+      font-size: 1.2rem;
+    }
   }
 }

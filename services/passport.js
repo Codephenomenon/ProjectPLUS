@@ -4,7 +4,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 const User = mongoose.model('users');
 
@@ -64,6 +64,7 @@ passport.use(new LocalStrategy(
           throw err;
         }
         if (match) {
+          console.log('is a match');
           return done(null, user);
         } else {
           return done(null, false);

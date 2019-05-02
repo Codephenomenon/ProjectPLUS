@@ -4,10 +4,11 @@ module.exports = (app) => {
   // LOCAL
   app.post('/auth',
     passport.authenticate('local', { successRedirect: '/dashboard', failureRedirect: '/' }),
-      function(req, res) {
-        console.log('redirect called');
-        res.redirect('/dashboard');
-  });
+    function(req, res) {
+      console.log('hit me babay one more toime');
+      res.redirect(307, '/dashboard');
+    }
+  );
 
   // GOOGLE
   app.get('/auth/google', passport.authenticate('google', {

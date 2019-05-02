@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ProjectList from './ProjectList';
 
 class ProjectsBox extends Component {
 
@@ -12,9 +13,7 @@ class ProjectsBox extends Component {
             <Link to="/projects/new">Create<i>+</i></Link>
             </div>
         </div>
-        <ul className="projectsbox_list">
-
-        </ul>
+        <ProjectList />
       </div>
     );
   }

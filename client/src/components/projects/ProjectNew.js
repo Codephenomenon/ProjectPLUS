@@ -1,6 +1,7 @@
 import React,  { Component } from 'react';
 import ProjectForm from './ProjectForm';
 import FormReview from './FormReview';
+import { reduxForm } from 'redux-form';
 
 class ProjectNew extends Component {
   constructor(props) {
@@ -32,4 +33,6 @@ class ProjectNew extends Component {
   }
 }
 
-export default ProjectNew;
+export default reduxForm({
+  form: 'createProject'
+})(ProjectNew);

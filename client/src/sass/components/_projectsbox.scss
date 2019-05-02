@@ -1,11 +1,18 @@
 .projectsbox {
-  grid-column-start: 2;
+  grid-column-start: 1;
   grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 6;
 
   display: flex;
   flex-direction: column;
+
+  @include respond(tablet-bg) {
+    grid-column-start: 2;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 5;
+  }
 
   &_header {
     flex: 0 0 10%;
@@ -21,10 +28,100 @@
       border-radius: 1rem;
       color: var(--color-white);
       font-size: 1.3rem;
+      transition: 0.3s ease;
+      backface-visibility: hidden;
+      transform: scale(0.95);
+
+      &:hover {
+        transform: translateY(-0.2rem);
+        transform: scale(1);
+        box-shadow: 0rem 0.2rem 0.3rem rgba(0,0,0,0.4);
+      }
     }
   }
 
   &_list {
     flex: 0 0 90%;
+    list-style: none;
+    overflow: auto;
+
+    &-item {
+      display: flex;
+      padding: 0.5rem 1rem;
+      flex-direction: row;
+      border-bottom: 1px solid var(--color-dark);
+
+      &:nth-child(even) {
+        background-color: var(--color-lightgray);
+      }
+
+      &-block {
+        flex: 1;
+        padding: 0.3rem;
+
+        &--title {
+          font-weight: 500;
+          color: var(--color-primary-dark);
+          text-decoration: underline;
+          line-height: 3rem;
+          font-size: 1.6rem;
+
+          @include respond(tablet-bg) {
+            font-size: 2rem;
+          }
+        }
+
+        &--body {
+          line-height: 3rem;
+          color: var(--color-tertiary);
+
+          @include respond(tablet-bg) {
+            font-size: 1.8rem;
+          }
+
+          @include respond(phone) {
+            font-size: 1rem;
+          }
+        }
+
+        &--subject {
+          font-weight: 300;
+
+          @include respond(tablet-bg) {
+            font-size: 1.5rem;
+          }
+        }
+
+        &--date {
+          margin: 1rem;
+          line-height: 0.5rem;
+
+          @include respond(tablet-bg) {
+            font-size: 1.5rem;
+            text-align: right;
+          }
+
+          @include respond(phone) {
+            font-size: 1.2rem;
+          }
+        }
+
+        &--dueInfo {
+          @include respond(tablet-bg) {
+            font-size: 1.5rem;
+            text-align: right;
+            padding-top: 0.5rem;
+          }
+
+          @include respond(phone) {
+            font-size: 1.2rem;
+          }
+        }
+
+        span {
+          color: var(--color-secondary);
+        }
+      }
+    }
   }
 }

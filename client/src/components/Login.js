@@ -1,5 +1,6 @@
 import React,  { Component } from 'react';
 import { Field, reset, reduxForm } from 'redux-form';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authUser } from '../actions/index.js'
 
@@ -8,10 +9,12 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      displayLogin: false
+      displayLogin: false,
+      redirectPage: false
     };
     this.displayLoginForm = this.displayLoginForm.bind(this);
   }
+
 
   renderError({error, touched}) {
     if (touched && error) {
@@ -44,10 +47,11 @@ class Login extends Component {
     }
     this.props.authUser(user);
     dispatch(reset("authUser"));
+    this.setState({ redirectPage: true });
   }
 
   renderLoginForm() {
-    if (this.state.displayLogin === true) {
+    if (this.state.displayLogin === true && this.state.redirectPage === false) {
       return (
         <div className="header_login-panel">
           <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
@@ -56,6 +60,11 @@ class Login extends Component {
             <button type="submit" className="header_login-panel--btn">Submit</button>
           </form>
         </div>
+      );
+    }
+    if (this.state.redirectPage === true) {
+      return (
+        <Redirect to="/dashboard"/>
       );
     }
   }
@@ -74,6 +83,10 @@ class Login extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
 const validate = (values) => {
   const errors = {};
   if (!values.userName) {
@@ -90,4 +103,4 @@ const wrappedForm = reduxForm({
   validate: validate
 })(Login);
 
-export default connect(null, { authUser })(wrappedForm);
+export default connect(mapStateToProps, { authUser })(wrappedForm);

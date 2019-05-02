@@ -1,13 +1,17 @@
 import React,  { Component } from 'react';
 import { connect } from 'react-redux';
 import Login from './Login';
+import {withRouter} from 'react-router-dom';
 
 class Header extends Component {
   renderLogin() {
-    switch (this.props.auth) {
-      case null:
-        return;
-      case false:
+    const path = this.props.location.pathname;
+    switch (path) {
+      case '/dashboard':
+        return (
+          <div className="header_login item"><a href="/api/logout">Logout</a></div>
+        );
+      case '/':
         return (
           <Login />
         );
@@ -36,4 +40,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

@@ -21,6 +21,16 @@
     align-items: center;
     justify-content: space-between;
 
+    @include respond(tablet-bg) {
+      max-width: 86rem;
+      height: 100rem;
+    }
+
+    @include respond(tablet-bg) {
+      max-width: 100%;
+      height: 80rem;
+    }
+
     &-row {
       flex: 0 0 40%;
       width: 100%;
@@ -33,7 +43,12 @@
         width: 18rem;
         height: 2rem;
         transition: all 0.3s ease;
-        background-color: var(--color-secondary);
+        background-color: var(--color-cream);
+
+        @include respond(tablet-bg) {
+          width: 24rem;
+          height: 2.5rem;
+        }
 
         &:focus {
           outline: none;
@@ -46,6 +61,10 @@
         padding: 0.3rem;
         font-size: 1.3rem;
         font-weight: 300;
+
+        @include respond(tablet-bg) {
+          font-size: 2.3rem;
+        }
       }
 
       &--error {
@@ -53,6 +72,10 @@
         font-size: 1rem;
         color: var(--color-white);
         font-style: italic;
+
+        @include respond(tablet-bg) {
+          font-size: 2rem;
+        }
       }
 
       &--btn {
@@ -69,6 +92,16 @@
         width: 15rem;
         height: 15rem;
         flex: 0 0 35%;
+
+        @include respond(tablet-bg) {
+          width: 20rem;
+          height: 20rem;
+        }
+
+        @include respond(phone) {
+          width: 18rem;
+          height: 18rem;
+        }
       }
 
       &--intro {
@@ -81,8 +114,24 @@
         flex-direction: column;
         font-size: 1.4rem;
 
+        @include respond(tablet-bg) {
+          font-size: 2.6rem;
+        }
+
+        @include respond(phone) {
+          font-size: 2rem;
+        }
+
         span {
           font-size: 2.3rem;
+
+          @include respond(tablet-bg) {
+            font-size: 3.5rem;
+          }
+
+          @include respond(phone) {
+            font-size: 2.5rem;
+          }
         }
       }
 
@@ -104,6 +153,10 @@
           color: var(--color-white);
           text-shadow: 0.1rem 0.2rem 0.2rem var(--color-black);
           font-size: 1.5rem;
+
+          @include respond(tablet-bg) {
+            font-size: 2.5rem;
+          }
         }
       }
 
@@ -125,7 +178,15 @@
             justify-content: center;
             transition: background-color 0.4s ease;
             padding: 2rem 1rem;
-            box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.4)
+            box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.4);
+
+            @include respond(tablet-bg) {
+              font-size: 3rem;
+            }
+
+            @include respond(phone) {
+              font-size: 2rem;
+            }
           }
         }
 

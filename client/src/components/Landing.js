@@ -12,6 +12,12 @@ class Landing extends Component {
     }
   }
 
+  componentDidUpdate() {
+    if (this.props.auth.isAuthenticated === true) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
   renderInput = ({input, label, type, meta}) => {
     return (
       <div className="landing_panel-row--div">
@@ -84,9 +90,13 @@ const validate = (values) => {
   return errors;
 };
 
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
 const wrappedForm = reduxForm({
   form: 'createUser',
   validate: validate
 })(Landing);
 
-export default connect(null, { createUser })(wrappedForm);
+export default connect(mapStateToProps, { createUser })(wrappedForm);

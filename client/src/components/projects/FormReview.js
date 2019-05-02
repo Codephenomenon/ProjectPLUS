@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
+import { withRouter } from 'react-router-dom';
 
-const FormReview = ({ onCancel, formValues }) => {
+const FormReview = ({ onCancel, formValues, createProject, history }) => {
   return (
     <div>
       <h2>Review new Project:</h2>
@@ -27,8 +29,8 @@ const FormReview = ({ onCancel, formValues }) => {
           <div className="projectReview_section--content">{formValues.projectDue}</div>
         </div>
         <div className="projectReview_section">
-          <button onClick={onCancel}>Back</button>
-          <button>Continue</button>
+          <button className="projectReview_section--cancel" onClick={onCancel}>Back</button>
+          <button onClick={() => createProject(formValues, history)} className="projectReview_section--submit">Submit</button>
         </div>
       </div>
     </div>
@@ -41,4 +43,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(FormReview);
+export default connect(mapStateToProps, actions)(withRouter(FormReview));

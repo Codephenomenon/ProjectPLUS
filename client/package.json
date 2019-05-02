@@ -16,11 +16,11 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "watch:sass": "node-sass src/sass/main.scss public/css/style.css -w",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "compile:sass": "node-sass src/sass/main.scss public/css/style.comp.css",
+    "prefix:css": "postcss public/css/style.comp.css -d public/css -u autoprefixer",
+    "compress:css": "node-sass public/css/style.comp.css public/css/style.css -o compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "proxy": "http://localhost:4000",
   "eslintConfig": {
@@ -31,5 +31,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "concat": "^1.0.3",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.2"
+  }
 }
